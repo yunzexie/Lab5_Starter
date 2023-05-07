@@ -10,10 +10,9 @@ function init() {
   const audio = document.querySelector('.hidden');
   // Click and play
   const button = document.querySelector("button");
-
-
-
-
+  // Sound Bar
+  const input = document.querySelectorAll('.volume');
+  const speaker_image = image[1];
 
   select.addEventListener("change", () => {
     if (select.value == 'air-horn') {
@@ -37,6 +36,24 @@ function init() {
   button.addEventListener("click", () => {
     audio.currentTime = 0;
     audio.play();
+  });
+
+  input.addEventListener("input", (event) => {
+    if (input.value == 0) {
+      speaker_image.src = `assets/icons/volume-level-0.svg`;
+      speaker_image.alt = `Muted`;
+    } else if (input.value == 0) {
+      speaker_image.src = `assets/icons/volume-level-0.svg`;
+      speaker_image.alt = `Muted`;
+    } else if (input.value == 0) {
+      speaker_image.src = `assets/icons/volume-level-0.svg`;
+      speaker_image.alt = `Muted`;
+    } else if (input.value == 0) {
+      speaker_image.src = `assets/icons/volume-level-0.svg`;
+      speaker_image.alt = `Muted`;
+    } else {
+      return;
+    }
   });
 
 }
