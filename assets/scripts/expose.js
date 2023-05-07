@@ -11,7 +11,7 @@ function init() {
   // Click and play
   const button = document.querySelector("button");
   // Sound Bar
-  const input = document.querySelectorAll('.volume');
+  const volume_input = document.getElementById('volume');
   const speaker_image = image[1];
 
   select.addEventListener("change", () => {
@@ -34,23 +34,25 @@ function init() {
   });
 
   button.addEventListener("click", () => {
+    const audio_volume = volume_input.value/100;
     audio.currentTime = 0;
+    audio.volume = audio_volume;
     audio.play();
   });
 
-  input.addEventListener("input", (event) => {
-    if (input.value == 0) {
+  volume_input.addEventListener("input", () => {
+    if (volume_input.value == 0) {
       speaker_image.src = `assets/icons/volume-level-0.svg`;
       speaker_image.alt = `Muted`;
-    } else if (input.value == 0) {
-      speaker_image.src = `assets/icons/volume-level-0.svg`;
-      speaker_image.alt = `Muted`;
-    } else if (input.value == 0) {
-      speaker_image.src = `assets/icons/volume-level-0.svg`;
-      speaker_image.alt = `Muted`;
-    } else if (input.value == 0) {
-      speaker_image.src = `assets/icons/volume-level-0.svg`;
-      speaker_image.alt = `Muted`;
+    } else if (volume_input.value > 0 && volume_input.value < 33) {
+      speaker_image.src = `assets/icons/volume-level-1.svg`;
+      speaker_image.alt = `Volume level 1`;
+    } else if (volume_input.value >= 33 && volume_input.value < 67) {
+      speaker_image.src = `assets/icons/volume-level-2.svg`;
+      speaker_image.alt = `Volume level 2`;
+    } else if (volume_input.value >= 67) {
+      speaker_image.src = `assets/icons/volume-level-3.svg`;
+      speaker_image.alt = `Volume level 3`;
     } else {
       return;
     }
