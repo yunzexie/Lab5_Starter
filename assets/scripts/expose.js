@@ -13,6 +13,7 @@ function init() {
   // Sound Bar
   const volume_input = document.getElementById('volume');
   const speaker_image = image[1];
+  const jsConfetti = new JSConfetti();
 
   select.addEventListener("change", () => {
     if (select.value == 'air-horn') {
@@ -34,6 +35,11 @@ function init() {
   });
 
   button.addEventListener("click", () => {
+    if(horn_image.alt == `Party horn selected`) {
+      jsConfetti.addConfetti({
+        emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸'],
+      });
+    }
     const audio_volume = volume_input.value/100;
     audio.currentTime = 0;
     audio.volume = audio_volume;
